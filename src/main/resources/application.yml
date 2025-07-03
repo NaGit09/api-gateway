@@ -1,5 +1,5 @@
-jwt :
-  key : SK40CSI2PC-D#?4klj50fdl3kd3ldư;l3ke
+jwt:
+  key: SK40CSI2PC-D#?4klj50fdl3kd3ldư;l3ke
 server:
   port: 8080
 spring:
@@ -11,6 +11,18 @@ spring:
     config:
       enabled: false
     gateway:
+      globals:
+        corsConfigurations:
+          '[/**]': # applies to all routes
+            allowedOrigins: "http://localhost:5173"  # or "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
       server:
         webflux:
           routes:
@@ -29,19 +41,19 @@ spring:
               uri:
                 lb://LIKE-SERVICE
               predicates:
-                    - Path=/likes/**
+                - Path=/likes/**
 
             - id: post-service
               uri:
                 lb://POST-SERVICE
               predicates:
-                        - Path=/posts/**
+                - Path=/posts/**
 
-            - id : comment-service
-              uri :
+            - id: comment-service
+              uri:
                 lb://COMMENT-SERVICE
-              predicates :
-                      - Path=/comments/**
+              predicates:
+                - Path=/comments/**
     eureka:
       client:
         service-url:
