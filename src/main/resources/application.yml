@@ -11,6 +11,18 @@ spring:
     config:
       enabled: false
     gateway:
+      globals:
+        corsConfigurations:
+          '[/**]': # applies to all routes
+            allowedOrigins: "http://localhost:5173"  # or "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
       server:
         webflux:
           routes:
