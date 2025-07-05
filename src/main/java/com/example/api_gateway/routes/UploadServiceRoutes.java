@@ -17,7 +17,6 @@ public class UploadServiceRoutes {
                 .route(r -> r.path("/upload/delete/")
                         .and().method("DELETE")
                         .uri("http://localhost:8082/delete/"))
-
                 .build();
     }
 }
