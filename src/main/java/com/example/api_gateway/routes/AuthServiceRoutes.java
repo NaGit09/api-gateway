@@ -12,15 +12,16 @@ public class AuthServiceRoutes {
     @Bean
     public RouteLocator AuthRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route(r -> r.path("/auth/register")
+
+                .route(r -> r.path("/auth-service/auth/register")
                         .and().method("POST")
-                        .uri("http://localhost:8081/auth/register"))
-                .route(r -> r.path("/auth/login")
+                        .uri("http://localhost:8081/auth-service/auth/register"))
+                .route(r -> r.path("/auth-service/auth/login")
                         .and().method("POST")
-                        .uri("http://localhost:8081/auth/login"))
-                .route(r -> r.path("/auth/refresh-token")
+                        .uri("http://localhost:8081/auth-service/auth/login"))
+                .route(r -> r.path("/auth-service/auth/refresh-token")
                         .and().method("POST")
-                        .uri("http://localhost:8081/auth/refresh-token"))
+                        .uri("http://localhost:8081/auth-service/auth/refresh-token"))
                 .build();
     }
 
