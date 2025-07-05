@@ -42,11 +42,9 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
             }
             String user_id = jwtUtils.getUserIdFromToken(token);
             String roles = jwtUtils.getRolesFromToken(token);
-            List<String> permissions = jwtUtils.getPermissionsFromToken(token);
             ServerHttpRequest mutatedRequest = request.mutate()
                     .header("X-User-Id", user_id)
                     .header("X-Roles", roles)
-                    .header("X-Permissions", String.join(",", permissions))
                     .build();
             System.out.println("mutatedRequest: " + mutatedRequest.toString());
             return chain.filter(exchange.mutate().request(mutatedRequest).build());
