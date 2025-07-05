@@ -29,7 +29,7 @@ spring:
             - id: auth-service
               uri: lb://AUTH-SERVICE
               predicates:
-                - Path=/auth/**
+                - Path=/auth-service/**
 
             - id: upload-service
               uri:
