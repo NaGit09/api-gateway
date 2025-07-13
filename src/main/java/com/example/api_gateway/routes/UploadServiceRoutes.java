@@ -9,14 +9,23 @@ import org.springframework.context.annotation.Configuration;
 public class UploadServiceRoutes {
     @Bean
     public RouteLocator routes(RouteLocatorBuilder builder) {
-        return builder.routes().route(
-                r -> r.path("/upload/uploadFile/")
+        return builder.routes()
+                .route(r -> r.path("/upload-service/upload/files")
                         .and().method("POST")
-                        .uri("http://localhost:8082/upload/uploadFile/")
-        )
-                .route(r -> r.path("/upload/delete/")
+                        .uri("http://localhost:8082/upload-service/upload/files"))
+
+                .route(r -> r.path("/upload-service/upload/delete-all")
                         .and().method("DELETE")
                         .uri("http://localhost:8082/delete/"))
+
+                .route(r -> r.path("/upload-service/upload/update-draft")
+                        .and().method("PUT")
+                        .uri("http://localhost:8082/upload-service/upload/update-draft"))
+
+                .route(r -> r.path("/upload-service/upload/delete-draft")
+                        .and().method("GET")
+                        .uri("http://localhost:8082/upload-service/upload/delete-draft"))
+
                 .build();
     }
 }

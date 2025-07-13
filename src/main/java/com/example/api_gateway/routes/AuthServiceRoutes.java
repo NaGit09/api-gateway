@@ -16,12 +16,24 @@ public class AuthServiceRoutes {
                 .route(r -> r.path("/auth-service/auth/register")
                         .and().method("POST")
                         .uri("http://localhost:8081/auth-service/auth/register"))
+
                 .route(r -> r.path("/auth-service/auth/login")
                         .and().method("POST")
                         .uri("http://localhost:8081/auth-service/auth/login"))
+
                 .route(r -> r.path("/auth-service/auth/refresh-token")
                         .and().method("POST")
                         .uri("http://localhost:8081/auth-service/auth/refresh-token"))
+
+                .route(r -> r.path("/auth-service/auth/infor/{id}")
+                        .and().method("GET")
+                        .uri("http://localhost:8081/auth-service/auth/infor/{id}"))
+
+                .route(r -> r.path("/auth-service/auth/logout")
+                        .and().method("POST")
+                        .uri("http://localhost:8081/auth-service/auth/logout"))
+
+
                 .build();
     }
 
