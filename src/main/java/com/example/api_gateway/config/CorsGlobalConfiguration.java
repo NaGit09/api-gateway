@@ -6,7 +6,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.reactive.CorsWebFilter;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
-import java.util.List;
+import java.util.Arrays;
+
 
 @Configuration
 public class CorsGlobalConfiguration {
@@ -14,7 +15,7 @@ public class CorsGlobalConfiguration {
     @Bean
     public CorsWebFilter corsWebFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
+        config.setAllowCredentials(true)
         config.setAllowedOrigins(List.of("http://localhost:5173")); // Use specific domains in production
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
@@ -25,3 +26,4 @@ public class CorsGlobalConfiguration {
         return new CorsWebFilter(source);
     }
 }
+

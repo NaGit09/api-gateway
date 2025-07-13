@@ -33,6 +33,7 @@ public class AuthServiceRoutes {
                         .and().method("POST")
                         .uri("http://localhost:8081/auth-service/auth/logout"))
 
+
                 .build();
     }
 
