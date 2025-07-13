@@ -12,19 +12,19 @@ public class UploadServiceRoutes {
         return builder.routes()
                 .route(r -> r.path("/upload-service/upload/files")
                         .and().method("POST")
-                        .uri("http://localhost:8082/upload-service/upload/files"))
+                        .uri("http://localhost:8082"))
 
                 .route(r -> r.path("/upload-service/upload/delete-all")
                         .and().method("DELETE")
-                        .uri("http://localhost:8082/delete/"))
+                        .uri("http://localhost:8082"))
 
                 .route(r -> r.path("/upload-service/upload/update-draft")
                         .and().method("PUT")
-                        .uri("http://localhost:8082/upload-service/upload/update-draft"))
+                        .uri("http://localhost:8082"))
 
                 .route(r -> r.path("/upload-service/upload/delete-draft")
                         .and().method("GET")
-                        .uri("http://localhost:8082/upload-service/upload/delete-draft"))
+                        .uri("http://localhost:8082"))
 
                 .build();
     }
