@@ -25,8 +25,8 @@ public class AuthServiceRoutes {
                         .and().method("POST")
                         .uri("http://localhost:8081"))
 
-                .route("auth-infor-route", r -> r
-                        .path("/auth-service/auth/infor/{id}")
+                .route( r -> r
+                        .path("/auth-service/users/infor")
                         .and().method("GET")
                         .uri("http://localhost:8081"))
 
