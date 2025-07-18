@@ -51,10 +51,13 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
         }
     }
 
-    private Mono<Void> unauthorized(ServerWebExchange exchange, String message) {
+    private Mono<Void> unauthorized
+            (ServerWebExchange exchange, String message) {
+
         exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
         DataBuffer buffer = exchange.getResponse()
-                .bufferFactory().wrap(message.getBytes(StandardCharsets.UTF_8));
+                .bufferFactory().
+                wrap(message.getBytes(StandardCharsets.UTF_8));
         return exchange.getResponse().writeWith(Mono.just(buffer));
     }
 

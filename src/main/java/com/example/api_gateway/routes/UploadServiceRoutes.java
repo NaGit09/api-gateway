@@ -10,21 +10,26 @@ public class UploadServiceRoutes {
     @Bean
     public RouteLocator routes(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route(r -> r.path("/upload-service/upload/files")
+
+                .route(r -> r
+                        .path("/upload-service/upload/files")
                         .and().method("POST")
-                        .uri("http://localhost:8082"))
+                        .uri("http://localhost:8083"))
 
-                .route(r -> r.path("/upload-service/upload/delete-all")
+                .route(r -> r
+                        .path("/upload-service/upload/delete-all")
                         .and().method("DELETE")
-                        .uri("http://localhost:8082"))
+                        .uri("http://localhost:8083"))
 
-                .route(r -> r.path("/upload-service/upload/update-draft")
+                .route(r -> r
+                        .path("/upload-service/upload/update-draft")
                         .and().method("PUT")
-                        .uri("http://localhost:8082"))
+                        .uri("http://localhost:8083"))
 
-                .route(r -> r.path("/upload-service/upload/delete-draft")
+                .route(r -> r
+                        .path("/upload-service/upload/delete-draft")
                         .and().method("GET")
-                        .uri("http://localhost:8082"))
+                        .uri("http://localhost:8083"))
 
                 .build();
     }

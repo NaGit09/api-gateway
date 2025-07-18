@@ -12,7 +12,8 @@ public class RouterValidator {
             "/auth-service/auth/login",
             "/auth-service/auth/register",
             "/auth-service/auth/refresh-token",
-            "/auth-service/users/infor"
+            "/auth-service/users/infor",
+            "/post-service/posts/"
     );
 
     public Predicate<ServerHttpRequest> isSecured = request ->
